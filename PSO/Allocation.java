@@ -36,7 +36,7 @@ public class Allocation {
 
     @Override
     public String toString() {
-        return "Allocation [container=" + container + ", vm=" + vm + ", host=" + host + "]";
+        return "Allocation [container=" + container.toString() + ", vm=" + vm.toString() + ", host=" + host.toString() + "]";
     }
 
     @Override

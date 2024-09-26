@@ -18,5 +18,27 @@ public class Container {
      * The storage.
      */
     private long storage;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public long getStorage() {
+        return storage;
+    }
+
+    public void setStorage(long storage) {
+        this.storage = storage;
+    }
+
+    @Override
+    public String toString() {
+        return "Container{" + "id=" + id + '}';
+    }
+    
     
 }

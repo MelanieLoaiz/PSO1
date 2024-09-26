@@ -28,4 +28,27 @@ public class ContainerHost {
      * The vm list.
      */
     private final List<? extends ContainerVm> vmList = new ArrayList<>();
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public long getStorage() {
+        return storage;
+    }
+
+    public void setStorage(long storage) {
+        this.storage = storage;
+    }
+
+    @Override
+    public String toString() {
+        return "ContainerHost{" + "id=" + id + '}';
+    }
+    
+    
 }

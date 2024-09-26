@@ -32,56 +32,12 @@ public class Discrete_ParticleUpdate {
     public void update(Discrete_PSO_Swarm swarm, Discrete_Particle particle) {
         this.swarm = swarm;
 
-        // Update velocity 
-        List<Allocation> personalPossibleMigrations = generatePossibleMigrations(WEIGHT_R1, COGNIT_COEFFICIENT, particle.getBestPosition(), particle.getPosition());
-        List<Allocation> globalPossibleMigrations = generatePossibleMigrations(WEIGHT_R2, SOCIAL_COEFFICIENT, swarm.getBestPosition(), particle.getPosition());
+        
+        
+        
 
-        for (Allocation possibleMigration : personalPossibleMigrations){
-            boolean isFounded = false;
-            for(Allocation allocation : particle.getVelocity()){
-                if(allocation.getContainer().equals(possibleMigration.getContainer())){
-                    isFounded = true;
-                    allocation.setVm(possibleMigration.getVm());
-                    allocation.setHost(possibleMigration.getHost());
-                    break;
-                }
-            }
-            if(!isFounded)
-                particle.getVelocity().add(possibleMigration);
-        }
-
-        for (Allocation possibleMigration : globalPossibleMigrations){
-            boolean isFounded = false;
-            for(Allocation allocation : particle.getVelocity()){
-                if(allocation.getContainer().equals(possibleMigration.getContainer())){
-                    isFounded = true;
-                    allocation.setVm(possibleMigration.getVm());
-                    allocation.setHost(possibleMigration.getHost());
-                    break;
-                }
-            }
-            if(!isFounded)
-                particle.getVelocity().add(possibleMigration);
-        }
-
-        // Update position
-        for (Allocation positionAllocation : particle.getPosition()) {
-            for (Allocation velocityAllocation : particle.getVelocity()){
-                if(positionAllocation.getContainer().equals(velocityAllocation.getContainer())){
-                    positionAllocation.setVm(velocityAllocation.getVm());
-                    positionAllocation.setHost(velocityAllocation.getHost());
-                }
-            }
-        }
     }
 
-    private List<Allocation> generatePossibleMigrations(double randomWeight, double coefficient, List<Allocation> bestPosition, List<Allocation> xPosition){
-        List<Allocation> possibleMigrations = new ArrayList<Allocation>();
-
-    
-
-        return possibleMigrations;
-    }
 
 
 }

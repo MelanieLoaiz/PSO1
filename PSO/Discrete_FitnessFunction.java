@@ -15,7 +15,7 @@ public class Discrete_FitnessFunction {
 
 	/** Default constructor */
 	public Discrete_FitnessFunction() {
-		maximize = true; // Default: Maximize
+		maximize = false; // Default: Maximize
 	}
 
 	/**
@@ -42,7 +42,7 @@ public class Discrete_FitnessFunction {
 
 		double sum = 0d;
 		for(Allocation allocation : position){
-			
+			sum = sum + allocation.getVm().getCost();
 		}
 		result = sum;
 
