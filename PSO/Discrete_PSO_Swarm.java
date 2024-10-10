@@ -31,7 +31,9 @@ public class Discrete_PSO_Swarm {
         this.fitnessFunction = fitnessFunction;
 
         // Set up particle update strategy (default: ParticleUpdateSimple) 
-		particleUpdate = new Discrete_ParticleUpdate();
+	particleUpdate = new Discrete_ParticleUpdate();
+        
+        bestFitness = Double.NaN;
     }
 
     /**
@@ -179,21 +181,13 @@ public class Discrete_PSO_Swarm {
 			// Evaluate particle
 			double fit = fitnessFunction.evaluate(particle);
                         
-                        // Update 'best personal' position
-			if (fitnessFunction.isBetterThan(particle.bestFitness, fit)) {
-				particle.bestFitness = fit; // Copy best fitness, index, and position vector
-				if (particle.bestPosition == null) 
-                                    particle.bestPosition = new ArrayList<>();
-				particle.copyPosition(particle.bestPosition);
-			}
-
 			// Update 'best global' position
-			//if (fitnessFunction.isBetterThan(bestFitness, fit)) {
+			if (fitnessFunction.isBetterThan(bestFitness, fit)) {
 				bestFitness = fit; // Copy best fitness, index, and position vector
 				if (bestPosition == null) 
                                     bestPosition = new ArrayList<>();
 				particle.copyPosition(bestPosition);
-			//}
+			}
 
 		}
 	}
