@@ -84,5 +84,7 @@ public class Discrete_FitnessFunction {
 	public void setMaximize(boolean maximize) {
 		this.maximize = maximize;
 	}
+        
+        
 
 }

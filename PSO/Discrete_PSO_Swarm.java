@@ -15,6 +15,10 @@ public class Discrete_PSO_Swarm {
 	Discrete_ParticleUpdate particleUpdate;
 
     private ArrayList<Discrete_Particle> particles;
+    
+    List<ContainerHost> hosts;
+    List<ContainerVm> vms;
+    List<Container> containers;
 
  
     /**
@@ -37,53 +41,69 @@ public class Discrete_PSO_Swarm {
 	public void init() {
             
             particles = new ArrayList<>();
+            hosts = new ArrayList<>();
+            vms = new ArrayList<>();
+            containers = new ArrayList<>();
             
             ContainerHost servidor1 = new ContainerHost();
             servidor1.setId(1);
+            hosts.add(servidor1);
             
             ContainerHost servidor2 = new ContainerHost();
             servidor1.setId(2);
+            hosts.add(servidor2);
             
             ContainerHost servidor3 = new ContainerHost();
             servidor1.setId(3);
+            hosts.add(servidor3);
             
             ContainerVm vm1 = new ContainerVm();
             vm1.setId(1);
             vm1.setRam(4096);
             vm1.setCost(10);
+            vms.add(vm1);
             
             ContainerVm vm2 = new ContainerVm();
             vm2.setId(2);
             vm2.setRam(1024);
             vm2.setCost(110);
+            vms.add(vm2);
             
             ContainerVm vm3 = new ContainerVm();
             vm3.setId(3);
             vm3.setRam(1024*2);
             vm3.setCost(30);
+            vms.add(vm3);
             
             ContainerVm vm4 = new ContainerVm();
             vm4.setId(4);
             vm4.setRam(1024*3);
             vm4.setCost(20);
+            vms.add(vm4);
             
             Container c1 = new Container();
             c1.setId(1);
+            containers.add(c1);
             
             Container c2 = new Container();
             c2.setId(2);
+            containers.add(c2);
             
             Container c3 = new Container();
             c3.setId(3);
+            containers.add(c3);
             
             Container c4 = new Container();
             c4.setId(4);
+            containers.add(c4);
             
             Container c5 = new Container();
             c5.setId(5);
+            containers.add(c5);
             
             Container c6 = new Container();
             c6.setId(6);
+            containers.add(c6);
             
             
             Discrete_Particle particula1 = new Discrete_Particle();
@@ -198,12 +218,12 @@ public class Discrete_PSO_Swarm {
 	 */
 	public void update() {
 
-        // For each particle...
-        for (Discrete_Particle particle : particles) {
-            // Update particle's position and speed
-            // Apply position and velocity constraints
-            particleUpdate.update(this, particle);
-        }
+            // For each particle...
+            for (Discrete_Particle particle : particles) {
+                // Update particle's position and speed
+                // Apply position and velocity constraints
+                particleUpdate.update(this, particle);
+            }
 
 	}
 
@@ -246,4 +266,30 @@ public class Discrete_PSO_Swarm {
     public void setParticles(ArrayList<Discrete_Particle> particles) {
         this.particles = particles;
     }
+
+    public List<ContainerHost> getHosts() {
+        return hosts;
+    }
+
+    public void setHosts(List<ContainerHost> hosts) {
+        this.hosts = hosts;
+    }
+
+    public List<ContainerVm> getVms() {
+        return vms;
+    }
+
+    public void setVms(List<ContainerVm> vms) {
+        this.vms = vms;
+    }
+
+    public List<Container> getContainers() {
+        return containers;
+    }
+
+    public void setContainers(List<Container> containers) {
+        this.containers = containers;
+    }
+    
+    
 }

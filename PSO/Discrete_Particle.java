@@ -47,6 +47,7 @@ public class Discrete_Particle {
 
     /** Copy position[] to positionCopy[] */
     public void copyPosition(List<Allocation> positionCopy) {
+        positionCopy.clear();
         for(Allocation alloc : position)
             positionCopy.add(new Allocation(alloc.getContainer(), alloc.getVm(), alloc.getHost()));
     }
