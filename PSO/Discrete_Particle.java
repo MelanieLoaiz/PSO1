@@ -21,6 +21,48 @@ public class Discrete_Particle {
     // Constructors
     //-------------------------------------------------------------------------
 
+    import numpy as np
+
+    /**Parámetros del PSO*/
+w = 0.5  # Coeficiente de inercia
+c1 = 1.5  # Coeficiente cognitivo
+c2 = 1.5  # Coeficiente social
+num_particles = 2
+num_iterations = 10
+
+/**Inicialización del enjambre*/
+particles = np.random.rand(num_particles, 2)  /** Posiciones iniciales*/
+velocities = np.zeros((num_particles, 2))  /** Velocidades iniciales*/
+personal_best_positions = particles.copy()
+personal_best_scores = np.full(num_particles, np.inf)
+global_best_position = None
+global_best_score = np.inf
+
+/**Función objetivo (ejemplo)*/
+def objective_function(x):
+    return np.sum(x**2)
+
+**/PSO loop*/
+for iteration in range(num_iterations):
+    for i in range(num_particles):
+        score = objective_function(particles[i])
+        if score < personal_best_scores[i]:
+            personal_best_scores[i] = score
+            personal_best_positions[i] = particles[i]
+        if score < global_best_score:
+            global_best_score = score
+            global_best_position = particles[i]
+    
+    for i in range(num_particles):
+        r1, r2 = np.random.rand(2)
+        velocities[i] = (w * velocities[i] +
+                         c1 * r1 * (personal_best_positions[i] - particles[i]) +
+                         c2 * r2 * (global_best_position - particles[i]))
+        particles[i] += velocities[i]
+
+print("Mejor posición encontrada:", global_best_position)
+print("Mejor puntuación:", global_best_score)
+
     /**
      * Constructor 
      */
