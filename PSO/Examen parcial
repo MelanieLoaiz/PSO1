@@ -1,0 +1,22 @@
+Examen parcial 20%.
+Sección I Selección (10%) ** Pendiente a semana 15 ** 
+Sección II Desarrollo (10%)
+Explicar el algoritmo del PSO que vimos en laboratorio:
+- cuál fue el problema que resolvimos? el espacio fue dinámico, estático, o determinista? poqué? 1pto
+Se resolvió el problema de saber cual era la mejor posición. Y fue dinámico 
+- cómo se representaron las posibles soluciones? 1pto
+Se representaron en un trabajo en conjunto donde cada uno realizaba el calculo en excel según lo requerido y se le daba los resultados al profesor.
+- cómo se creó la población inicial? 1pto
+con un enjambre
+- cómo inicia la ejecución, se empieza evaluando o actualizando la posición de las partículas? 1pto
+Se inició la ejecución evaluando y después actualizando las partículas.
+- qué es actualizar la posición y qué procedimiento realizamos? 2pto
+es observar la mejor opción y actualizar el código según la nueva información.
+- para qué sirve la función objetivo y qué hizo en nuestro laboratorio? 1pto
+para evaluar las posibles soluciones, en nuestro caso cual era la mejor posición 
+- cómo utilizamos la velocidad de las partículas en nuestro laboratorio? 
+se utilizó para analizar la mejor posición y la mejor posición global y según la velocidad cambiaba de posición
+- indique si lo que hicimos es un algoritmo evolutivo, y porqué si o no. 1pto
+sí fue un algoritmo evolutivo porque se hicieron cambios de mejora a lo largo de todo el código.
+- qué tiene que ver lo que hicimos con un enjambre de aves? 1pto
+fue el escenario base para el código ya que servía de ejemplo para el entendimiento
